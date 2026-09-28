@@ -30,8 +30,8 @@ object ReverseClockDrawer {
         val textOffset = (paint.descent() + paint.ascent()) / 2f
 
         for (i in 1..12) {
-            val angleDeg = -90 - (i * 30)
-            val angleRad = Math.toRadians(angleDeg.toDouble())
+            val angleDeg = -90.0 - (i * 30.0)
+            val angleRad = Math.toRadians(angleDeg)
             val numRadius = radius * 0.75f
             
             val x = center + (numRadius * Math.cos(angleRad)).toFloat()
@@ -45,13 +45,13 @@ object ReverseClockDrawer {
         val minute = calendar.get(Calendar.MINUTE)
         val second = calendar.get(Calendar.SECOND)
 
-        val hourAngle = -90 - (hour * 30) - (minute * 0.5)
+        val hourAngle = -90.0 - (hour * 30.0) - (minute * 0.5)
         drawHand(canvas, center, hourAngle, radius * 0.5f, 15f, Color.BLACK)
 
-        val minAngle = -90 - (minute * 6) - (second * 0.1)
+        val minAngle = -90.0 - (minute * 6.0) - (second * 0.1)
         drawHand(canvas, center, minAngle, radius * 0.7f, 10f, Color.DKGRAY)
 
-        val secAngle = -90 - (second * 6)
+        val secAngle = -90.0 - (second * 6.0)
         drawHand(canvas, center, secAngle, radius * 0.85f, 5f, Color.RED)
 
         return bitmap
